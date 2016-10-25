@@ -112,8 +112,7 @@ while gameover == False:
         for j in range(0,9):
             print(mine_list[i][j], end= ' ')
         print("")
-
-
+    
         
             
 
