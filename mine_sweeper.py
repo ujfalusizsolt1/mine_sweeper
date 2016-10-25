@@ -17,7 +17,6 @@ for i in range(0, 9):
     for j in range(0, 9):
         print(table_list[i][j], end=' ')
     print("")
-    
 
 
 #while gameover = False:
