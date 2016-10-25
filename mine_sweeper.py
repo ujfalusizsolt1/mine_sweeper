@@ -34,65 +34,67 @@ for i in range(0, 9):
 while gameover == False:
 
     
-    check=bool(input("Do you want to check the the next target? "))
+    mark=bool(input("Do you want to mark the the next target? "))
+    
     firstcoord=int(input("Please give the number of the row you want to check: "))
+
     secondcoord=int(input("Please give the number of the column you want to check: "))
 
 
     if mine_list[firstcoord][secondcoord] == 10:
-        if check == True:
+        if mark == True:
             minecounter -= 1
-        elif check == False:
+        elif mark == False:
             gameover = True
             print("Aknára léptél és felrobbantál a picsába.")
 
-    mines = 0
+    minesaround = 0
 
-    if gameover == False and check == False:
+    if gameover == False and mark == False:
         if firstcoord == 0:
             for i in range(0,1):
                 if secondcoord == 0:
                     for j in range(0,1):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
                 elif secondcoord == 8:
                     for j in range(-1,0):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
                 else:
                     for j in range(-1,1):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
         elif firstcoord == 8:
             for i in range(-1,0):
                 if secondcoord == 0:
                     for j in range(0,1):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
                 elif secondcoord == 8:
                     for j in range(-1,0):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
                 else:
                     for j in range(-1,1):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
         else:
             for i in range(-1,1):
                 if secondcoord == 0:
                     for j in range(0,1):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
                 elif secondcoord == 8:
                     for j in range(-1,0):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
+                            minesaround += 1
                 else:
                     for j in range(-1,1):
                         if mine_list[firstcoord+i][secondcoord+j] == 10:
-                            mines += 1
-        table_list[firstcoord][secondcoord] = mines
-        mines = 0
+                            minesaround += 1
+        table_list[firstcoord][secondcoord] = minesaround
+        minesaround = 0
 
 
     for i in range(0, 9):
@@ -107,6 +109,7 @@ while gameover == False:
                     print(table_list[i][j], end=' ')
             print("")
 
+    print("")
 
     for i in range(0,9):
         for j in range(0,9):
