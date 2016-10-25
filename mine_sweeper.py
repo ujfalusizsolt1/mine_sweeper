@@ -30,6 +30,33 @@ for i in range(0, 9):
     print("")
 
 
-#while gameover = False:
+while gameover = False:
+    firstcoord=int(input("Please give the number of the row you want to check: "))
+    secondcoord=int(input("Please give the number of the column you want to check: "))
+
+    if mine_list[firstcoord][secondcoord] == 10:
+        gameover = True
+
+    mines = 0
+
+    if gameover == False:
+        if firstcoord == 0:
+            for i in range(0,1):
+                if secondcoord == 0:
+                    for j in range(0,1):
+                elif secondcoord == 8:
+                    for j in range(-1,0):
+                else:
+                    for j in range(-1,1):
+        elif firstcoord == 8:
+            for i in range(-1,0):
+        else:
+            for i in range(-1,1):
+
+
+
+        
+            
+
     
 
