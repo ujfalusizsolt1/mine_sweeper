@@ -66,8 +66,8 @@ while gameover == False:
 
     while gameover == False and mark == False:
         # megnézi a megjelölt mező környzetében hány akna van
-        for i in range(-1,1):
-            for j in range(-1,1):
+        for i in range(-1,2):
+            for j in range(-1,2):
                 try:
                     if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
                             minesaround += 1
