@@ -36,10 +36,10 @@ while gameover == False:
 
     
     mark = input("Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
-    if mark == "M":
+    if mark == 'M':
         mark = True
-    elif mark == "C":
-        mark == False
+    elif mark == 'C':
+        mark = False
     
     firstcoord = int(input("Please give the number of the row you want to check: "))
 
@@ -73,7 +73,10 @@ while gameover == False:
                 except IndexError:
                     pass
 
-        table_list[firstcoord][secondcoord] = minesaround
+        if minesaround == 0:
+            table_list[firstcoord][secondcoord] = 9
+        else:
+            table_list[firstcoord][secondcoord] = minesaround
         minesaround = 0
                         
 
