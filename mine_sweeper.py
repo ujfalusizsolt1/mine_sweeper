@@ -36,11 +36,10 @@ for i in range(0, 9):
 while gameover == False:
 
     
-<<<<<<< HEAD
+
     mark = "C" #input(Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
-=======
     mark = input("Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
->>>>>>> master
+
     if mark == 'M':
         mark = True
     elif mark == 'C':
