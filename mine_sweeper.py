@@ -41,9 +41,9 @@ while gameover == False:
     elif mark == "C":
         mark == False
     
-    firstcoord = int(input("Please give the number of the row you want to check: "))
+    firstcoord =random.randint(0,8) #int(input("Please give the number of the row you want to check: "))
 
-    secondcoord = int(input("Please give the number of the column you want to check: "))
+    secondcoord =random.randint(0,8) #int(input("Please give the number of the column you want to check: "))
 
 
 
