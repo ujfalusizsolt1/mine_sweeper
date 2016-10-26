@@ -29,6 +29,7 @@ for i in range(0, 9):
     for j in range(0, 9):
         print("O", end=" ")
     print("")
+    
 
     minecounter = 14
 
