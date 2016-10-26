@@ -61,6 +61,9 @@ while gameover == False:
             gameover = True
             print("Aknára léptél és felrobbantál a picsába.")
 
+    if mark == True and table_list[firstcoord][secondcoord] == 0:
+        table_list[firstcoord][secondcoord] = 11
+
     minesaround = 0
 
 
