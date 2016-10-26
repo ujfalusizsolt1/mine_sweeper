@@ -126,8 +126,7 @@ while gameover == False:
         for j in range(0,9):
             print(table_list[i][j], end= ' ')
         print("")
-
-
+    
         
             
 
