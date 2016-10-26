@@ -35,7 +35,11 @@ for i in range(0, 9):
 while gameover == False:
 
     
-    mark = bool(input("Do you want to mark the the next target? "))
+    mark = input("Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
+    if mark == "M":
+        mark = True
+    elif mark == "C":
+        mark == False
     
     firstcoord = int(input("Please give the number of the row you want to check: "))
 
@@ -55,21 +59,19 @@ while gameover == False:
     minesaround = 0
 
 
+    while gameover == False and mark == False:
+        # megnézi a megjelölt mező környzetében hány akna van
+        for i in range(-1,1):
+            for j in range(-1,1):
+                try:
+                    if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+                except IndexError:
+                    pass
 
-    # megnézi a megjelölt mező környzetében hány akna van
-
-
-    for i in range(-1,1):
-        for j in range(-1,1):
-            try:
-                if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
-                        minesaround += 1
-            except IndexError:
-                pass
-
-    table_list[firstcoord][secondcoord] = minesaround
-    minesaround = 0
-                    
+        table_list[firstcoord][secondcoord] = minesaround
+        minesaround = 0
+                        
 
 
     # table list kiprintelése
