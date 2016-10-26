@@ -36,10 +36,10 @@ while gameover == False:
 
     
     mark = "C" #input(Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
-    if mark == "M":
+    if mark == 'M':
         mark = True
-    elif mark == "C":
-        mark == False
+    elif mark == 'C':
+        mark = False
     
     firstcoord =random.randint(0,8) #int(input("Please give the number of the row you want to check: "))
 
