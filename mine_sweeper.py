@@ -30,20 +30,25 @@ for i in range(0, 9):
         print("O", end=" ")
     print("")
 
-    minecounter = 14
+    minecounter = 14    
 
 while gameover == False:
 
     
+<<<<<<< HEAD
     mark = input("Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
     if mark == 'M':
+=======
+    mark = "C" #input(Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
+    if mark == "M":
+>>>>>>> test
         mark = True
     elif mark == 'C':
         mark = False
     
-    firstcoord = int(input("Please give the number of the row you want to check: "))
+    firstcoord =random.randint(0,8) #int(input("Please give the number of the row you want to check: "))
 
-    secondcoord = int(input("Please give the number of the column you want to check: "))
+    secondcoord =random.randint(0,8) #int(input("Please give the number of the column you want to check: "))
 
 
 
