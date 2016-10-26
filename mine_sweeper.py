@@ -55,6 +55,10 @@ while gameover == False:
         elif mark == False:
             gameover = True
             print("Aknára léptél és felrobbantál a picsába.")
+    elif table_list[firstcoord][secondcoord] == 12:
+        if mark == False:
+            gameover = True
+            print("Aknára léptél és felrobbantál a picsába.")
 
     minesaround = 0
 
