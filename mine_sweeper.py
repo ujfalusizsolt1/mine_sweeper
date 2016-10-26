@@ -35,7 +35,7 @@ for i in range(0, 9):
 while gameover == False:
 
     
-    mark = "M" #input(Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
+    mark = "C" #input(Do you want to mark the the next target ('M' for mark and 'C' for check)? ")
     if mark == "M":
         mark = True
     elif mark == "C":
