@@ -92,7 +92,7 @@ while gameover == False:
         elif table_list[firstcoord][secondcoord] == 0:
             if mark == True:
                 markcounter -= 1
-        table_list[firstcoord][secondcoord] = 11
+                table_list[firstcoord][secondcoord] = 11
 
 
     minesaround = 0
