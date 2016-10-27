@@ -1,5 +1,6 @@
 import random
 
+#színek printeléshez
 PURPLE = '\033[95m'
 CYAN = '\033[96m'
 DARKCYAN = '\033[36m'
@@ -14,6 +15,8 @@ END = '\033[0m'
 gameover = False
 
 table_list= []
+
+#játékfeltételek beállítása
 
 size = int(input(YELLOW + "Please give us the minefield's size: " + END))
 
@@ -54,7 +57,7 @@ for i in range(0, size):
 
 
 while gameover == False:
-
+    #input
     print(YELLOW + "Remaining mines: ", minecounter, "Remaining marks: ", markcounter , END)
 
     if markcounter > 0:
@@ -73,7 +76,7 @@ while gameover == False:
 
         secondcoord = int(input(YELLOW + "Please give the number of the column you want to check: " + END))-1
 
-
+    print("")
 
     # gameover feltétel/mark ellenőrzése
     if gameover == False:
@@ -105,26 +108,8 @@ while gameover == False:
 
     minesaround = 0
 
-    """
-    if gameover == False and mark == False:
-        # megnézi a megjelölt mező környzetében hány akna van
-        for i in range(-1,2):
-            for j in range(-1,2):
-                try:
-                    if table_list[firstcoord+i][secondcoord+j] == 10:
-                        minesaround += 1
-                    elif table_list[firstcoord+i][secondcoord+j] == 12:
-                        minesaround += 1
-                except IndexError:
-                    pass
 
-        if minesaround == 0:
-            table_list[firstcoord][secondcoord] = 9
-        else:
-            table_list[firstcoord][secondcoord] = minesaround
-
-        emptycounter -=1
-    """
+    # megnézi a megjelölt mező környzetében hány akna van, ha a játékos a table_list valamelyik szélét jelölte meg, akkor sem lép ki a a 2D-s listából
     if gameover == False and mark == False:
         if firstcoord == 0:
             for i in range(0,2):
@@ -198,24 +183,9 @@ while gameover == False:
 
     print("")
 
-    # aknamező kiprintelése
-
-    for i in range(0,size):
-        for j in range(0,size):
-            print(table_list[i][j], end= ' ')
-        print("")
-
     if gameover == True:
         print(RED + "GAME OVER. YOU LOST!" + END)
 
     if minecounter == 0 or emptycounter == 0:
         gameover = True
         print(GREEN + "CONGRATULATIONS! YOU WON!" + END)
-
-    
-    
-        
-            
-
-    
-
