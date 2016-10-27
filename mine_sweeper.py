@@ -1,5 +1,16 @@
 import random
 
+PURPLE = '\033[95m'
+CYAN = '\033[96m'
+DARKCYAN = '\033[36m'
+BLUE = '\033[94m'
+GREEN = '\033[92m'
+YELLOW = '\033[93m'
+RED = '\033[91m'
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+END = '\033[0m'
+
 gameover = False
 
 table_list= []
@@ -48,7 +59,7 @@ for i in range(0, size):
 
 while gameover == False:
 
-    print("Remaining mines: ", minecounter, "Remaining marks: ", markcounter)
+    print(GREEN+"Remaining mines: " +BLUE , minecounter, "Remaining marks: ", markcounter, END)
 
     if markcounter > 0:
         mark = 'M' #input("Do you want to mark the the next target (M-mark, C-check, anything else-exit)? ")
