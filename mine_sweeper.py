@@ -33,13 +33,14 @@ for i in range(0,size):
         table_list[i].append(0)
 
 # aknák elhelyezése
-for i in range(0,minecounter):
+while i <= minecounter:
     x = random.randint(0, size-1)
     y = random.randint(0, size-1)
     if table_list[x][y] == 0:
         table_list[x][y] = 10
+        i += 1
     else:
-        i -= 1
+        pass
 
 # table felprintelése
 for i in range(0, size):
