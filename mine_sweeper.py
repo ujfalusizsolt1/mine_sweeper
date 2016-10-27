@@ -33,7 +33,8 @@ for i in range(0,size):
         table_list[i].append(0)
 
 # aknák elhelyezése
-while i <= minecounter:
+i = 0
+while i < minecounter:
     x = random.randint(0, size-1)
     y = random.randint(0, size-1)
     if table_list[x][y] == 0:
