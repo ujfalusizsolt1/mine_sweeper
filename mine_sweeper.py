@@ -1,55 +1,44 @@
 import random
 
-PURPLE = '\033[95m'
-CYAN = '\033[96m'
-DARKCYAN = '\033[36m'
-BLUE = '\033[94m'
-GREEN = '\033[92m'
-YELLOW = '\033[93m'
-RED = '\033[91m'
-BOLD = '\033[1m'
-UNDERLINE = '\033[4m'
-END = '\033[0m'
-
 gameover = False
 
 table_list= []
 
 mine_list=[]
 
-size = int(input("Please give us the minefield's size: "))
+size =  9 #int(input("Please give us the minefield's size: "))
 
-minecounter = int(input("How many mines would you like to have on the minefield? "))
+minecounter = 10 #int(input("How many mines would you like to have on the minefield? "))
 
 if minecounter >= size*size:
     gameover = true
 
-markcounter = minecounter + 1
+markcounter = minecounter
 
 # 0-val táblázat feltöltés
-for i in range(0,size+1):
+for i in range(0,size):
     table_list.append([])
     mine_list.append([])
-    for j in range(0,size+1):
+    for j in range(0,size):
         table_list[i].append(0)
         mine_list[i].append(0)
 
 # aknák elhelyezése
 for i in range(0,minecounter):
-    if table_list[random.randint(0, size)][random.randint(0, size)] == 0:
-        table_list[random.randint(0, size)][random.randint(0, size)] = 10
+    if table_list[random.randint(0, size-1)][random.randint(0, size-1)] == 0:
+        table_list[random.randint(0, size-1)][random.randint(0, size-1)] = 10
     else:
         i -= 1
 
-for i in range(0,size+1):
-    for j in range(0,size+1):
+for i in range(0,size):
+    for j in range(0,size):
         if table_list[i][j] == 10:
             mine_list[i][j] = "X"
 
 
 # table felprintelése
-for i in range(0, size+1):
-    for j in range(0, size+1):
+for i in range(0, size):
+    for j in range(0, size):
         print("O", end=" ")
     print("")
     
@@ -62,7 +51,7 @@ while gameover == False:
     print("Remaining mines: ", minecounter, "Remaining marks: ", markcounter)
 
     if markcounter > 0:
-        mark = input("Do you want to mark the the next target (M-mark, C-check, anything else-exit)? ")
+        mark = 'M' #input("Do you want to mark the the next target (M-mark, C-check, anything else-exit)? ")
         if mark == 'M':
             mark = True
         elif mark == 'C':
@@ -73,9 +62,9 @@ while gameover == False:
         mark = False
     
     if gameover == False:
-        firstcoord = int(input("Please give the number of the" + BOLD +  " row " + END + " you want to check: "))
+        firstcoord = 3 #int(input("Please give the number of the row you want to check: "))-1
 
-        secondcoord = int(input("Please give the number of the" +BOLD + " column " + END + "you want to check: "))
+        secondcoord = 3 #int(input("Please give the number of the column you want to check: "))-1
 
 
 
@@ -95,9 +84,11 @@ while gameover == False:
                 print("Aknára léptél és felrobbantál a picsába.")
             elif mark == True:
                 markcounter += 1
+                table_list[firstcoord][secondcoord] = 10
         elif table_list[firstcoord][secondcoord] == 11:
             if mark == True:
                 markcounter += 1
+                table_list[firstcoord][secondcoord] = 0
 
 
     if mark == True and table_list[firstcoord][secondcoord] == 0:
@@ -127,7 +118,7 @@ while gameover == False:
 
     # table list kiprintelése
     for i in range(0, size+1):
-        for j in range(0, size):
+        for j in range(0, size+1):
             if i == 0 and j != 0:
                 print(j, end=" ")
             elif i != 0 and j == 0:
@@ -135,27 +126,36 @@ while gameover == False:
             elif i == 0 and j ==0:
                 print(" ",end=" ")
             else:
-                if table_list[i][j] == 0:
+                if table_list[i-1][j-1] == 0:
                     print("O", end=" ")
-                elif table_list[i][j] == 10:
+                elif table_list[i-1][j-1] == 10:
                     print("O", end=" ")
-                elif table_list[i][j] == 9:
+                elif table_list[i-1][j-1] == 9:
                     print(" ", end=" ")
-                elif table_list[i][j] == 11 or table_list[i][j] == 12:
+                elif table_list[i-1][j-1] == 11 or table_list[i-1][j-1] == 12:
                     print("X", end=" ")
                 else:
-                    print(table_list[i][j], end=' ')
+                    print(table_list[i-1][j-1], end=' ')
         print("")
 
     print("")
 
     # aknamező kiprintelése
 
-    for i in range(0,size+1):
-        for j in range(0,size+1):
+    for i in range(0,size):
+        for j in range(0,size):
             print(table_list[i][j], end= ' ')
         print("")
+
+    if minecounter == 0:
+        gameover = True
+        print("CONGRATULATIONS! YOU WON!")
     
+        
+            
+
+    
+
         
             
 
