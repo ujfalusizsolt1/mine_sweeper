@@ -105,7 +105,7 @@ while gameover == False:
 
     minesaround = 0
 
-
+    """
     if gameover == False and mark == False:
         # megnézi a megjelölt mező környzetében hány akna van
         for i in range(-1,2):
@@ -123,7 +123,55 @@ while gameover == False:
         else:
             table_list[firstcoord][secondcoord] = minesaround
 
-        emptycounter -=1                        
+        emptycounter -=1
+    """
+    if gameover == False and mark == False:
+        if firstcoord == 0:
+            for i in range(0,2):
+                if secondcoord == 0:
+                    for j in range(0,2):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+                elif secondcoord == size-1:
+                    for j in range(-1,1):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+                else:
+                    for j in range(-1,2):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+        elif firstcoord == size-1:
+            for i in range(-1,1):
+                if secondcoord == 0:
+                    for j in range(0,2):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+                elif secondcoord == size-1:
+                    for j in range(-1,1):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+                else:
+                    for j in range(-1,2):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+        else:
+            for i in range(-1,2):
+                if secondcoord == 0:
+                    for j in range(0,2):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+                elif secondcoord == size-1:
+                    for j in range(-1,1):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+                else:
+                    for j in range(-1,2):
+                        if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            minesaround += 1
+        table_list[firstcoord][secondcoord] = minesaround
+        minesaround = 0
+        emptycounter -=1
+                        
 
 
     # table list kiprintelése
