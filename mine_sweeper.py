@@ -1,5 +1,16 @@
 import random
 
+PURPLE = '\033[95m'
+CYAN = '\033[96m'
+DARKCYAN = '\033[36m'
+BLUE = '\033[94m'
+GREEN = '\033[92m'
+YELLOW = '\033[93m'
+RED = '\033[91m'
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+END = '\033[0m'
+
 gameover = False
 
 table_list= []
@@ -62,9 +73,9 @@ while gameover == False:
         mark = False
     
     if gameover == False:
-        firstcoord = int(input("Please give the number of the row you want to check: "))
+        firstcoord = int(input("Please give the number of the" + BOLD +  " row " + END + " you want to check: "))
 
-        secondcoord = int(input("Please give the number of the column you want to check: "))
+        secondcoord = int(input("Please give the number of the" +BOLD + " column " + END + "you want to check: "))
 
 
 
