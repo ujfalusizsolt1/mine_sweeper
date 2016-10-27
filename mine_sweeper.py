@@ -111,8 +111,10 @@ while gameover == False:
         for i in range(-1,2):
             for j in range(-1,2):
                 try:
-                    if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
-                            minesaround += 1
+                    if table_list[firstcoord+i][secondcoord+j] == 10:
+                        minesaround += 1
+                    elif table_list[firstcoord+i][secondcoord+j] == 12:
+                        minesaround += 1
                 except IndexError:
                     pass
 
