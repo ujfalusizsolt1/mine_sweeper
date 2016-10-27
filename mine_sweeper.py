@@ -115,7 +115,7 @@ while gameover == False:
 
 
     # table list kiprintelése
-    for i in range(0, size):
+    for i in range(0, size+1):
         for j in range(0, size):
             if i == 0 and j != 0:
                 print(j, end=" ")
