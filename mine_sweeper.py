@@ -118,7 +118,7 @@ while gameover == False:
             table_list[firstcoord][secondcoord] = 9
         else:
             table_list[firstcoord][secondcoord] = minesaround
-        minesaround = 0
+
         emptycounter -=1                        
 
 
@@ -153,12 +153,14 @@ while gameover == False:
             print(table_list[i][j], end= ' ')
         print("")
 
+    if gameover == True:
+        print(RED + "GAME OVER. YOU LOST!" + END)
+
     if minecounter == 0 or emptycounter == 0:
         gameover = True
         print(GREEN + "CONGRATULATIONS! YOU WON!" + END)
 
-    if gameover == True:
-        print(RED + "GAME OVER. YOU LOST!" + END)
+    
     
         
             
