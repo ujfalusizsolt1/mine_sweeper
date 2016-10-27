@@ -15,9 +15,9 @@ gameover = False
 
 table_list= []
 
-size = 3 #int(input(YELLOW + "Please give us the minefield's size: " + END))
+size = 5 #int(input(YELLOW + "Please give us the minefield's size: " + END))
 
-minecounter = 8 #int(input(YELLOW + "How many mines would you like to have on the minefield? " + END))
+minecounter = 5 #int(input(YELLOW + "How many mines would you like to have on the minefield? " + END))
 
 if minecounter >= size*size:
     gameover = true
@@ -57,7 +57,7 @@ while gameover == False:
     print(YELLOW + "Remaining mines: ", minecounter, "Remaining marks: ", markcounter , END)
 
     if markcounter > 0:
-        mark = input(YELLOW + "Do you want to mark the the next target (M-mark, C-check, anything else-exit)? " + END)
+        mark = "M" #input(YELLOW + "Do you want to mark the the next target (M-mark, C-check, anything else-exit)? " + END)
         if mark == 'M':
             mark = True
         elif mark == 'C':
@@ -68,9 +68,9 @@ while gameover == False:
         mark = False
     
     if gameover == False:
-        firstcoord = int(input(YELLOW + "Please give the number of the row you want to check: " + END))-1
+        firstcoord = 1 #int(input(YELLOW + "Please give the number of the row you want to check: " + END))-1
 
-        secondcoord = int(input(YELLOW + "Please give the number of the column you want to check: " + END))-1
+        secondcoord = 1 #int(input(YELLOW + "Please give the number of the column you want to check: " + END))-1
 
 
 
