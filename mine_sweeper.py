@@ -13,11 +13,11 @@ END = '\033[0m'
 
 gameover = False
 
-table_list= []
+table_list= [[0,10,0],[0,10,0],[0,10,0]]
 
-size = 5 #int(input(YELLOW + "Please give us the minefield's size: " + END))
+size = 3 #int(input(YELLOW + "Please give us the minefield's size: " + END))
 
-minecounter = 5 #int(input(YELLOW + "How many mines would you like to have on the minefield? " + END))
+minecounter = 3 #int(input(YELLOW + "How many mines would you like to have on the minefield? " + END))
 
 if minecounter >= size*size:
     gameover = true
@@ -27,21 +27,21 @@ markcounter = minecounter
 emptycounter = size * size - minecounter
 
 # 0-val táblázat feltöltés
-for i in range(0,size):
-    table_list.append([])
-    for j in range(0,size):
-        table_list[i].append(0)
+#for i in range(0,size):
+    #table_list.append([])
+    #for j in range(0,size):
+        #table_list[i].append(0)
 
 # aknák elhelyezése
-i= 0
-while i < minecounter:
-    x = random.randint(0, size-1)
-    y = random.randint(0, size-1)
-    if table_list[x][y] == 0:
-        table_list[x][y] = 10
-        i += 1
-    else:
-        pass
+#i= 0
+#while i < minecounter:
+    #x = random.randint(0, size-1)
+    #y = random.randint(0, size-1)
+    #if table_list[x][y] == 0:
+        #table_list[x][y] = 10
+        #i += 1
+    #else:
+        #pass
 
 # table felprintelése
 for i in range(0, size):
@@ -58,7 +58,7 @@ while gameover == False:
     print(YELLOW + "Remaining mines: ", minecounter, "Remaining marks: ", markcounter , END)
 
     if markcounter > 0:
-        mark = "M" #input(YELLOW + "Do you want to mark the the next target (M-mark, C-check, anything else-exit)? " + END)
+        mark = 'C' #input(YELLOW + "Do you want to mark the the next target (M-mark, C-check, anything else-exit)? " + END)
         if mark == 'M':
             mark = True
         elif mark == 'C':
@@ -69,9 +69,9 @@ while gameover == False:
         mark = False
     
     if gameover == False:
-        firstcoord = 1 #int(input(YELLOW + "Please give the number of the row you want to check: " + END))-1
+        firstcoord = 0  #int(input(YELLOW + "Please give the number of the row you want to check: " + END))-1
 
-        secondcoord = 1 #int(input(YELLOW + "Please give the number of the column you want to check: " + END))-1
+        secondcoord = 2  #int(input(YELLOW + "Please give the number of the column you want to check: " + END))-1
 
 
 
@@ -107,14 +107,59 @@ while gameover == False:
 
 
     if gameover == False and mark == False:
+       if firstcoord == 0:
+           for i in range(0,2):
+               if secondcoord == 0:
+                   for j in range(0,2):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+               elif secondcoord == size:
+                   for j in range(-1,1):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+               else:
+                   for j in range(-1,2):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+       elif firstcoord == size:
+           for i in range(-1,1):
+               if secondcoord == 0:
+                   for j in range(0,2):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+               elif secondcoord == size:
+                   for j in range(-1,1):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+               else:
+                   for j in range(-1,2):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+       else:
+           for i in range(-1,2):
+               if secondcoord == 0:
+                   for j in range(0,2):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+               elif secondcoord == size:
+                   for j in range(-1,1):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+               else:
+                   for j in range(-1,2):
+                       if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                           minesaround += 1
+       table_list[firstcoord][secondcoord] = minesaround
+       minesaround = 0
+       emptycounter -=1        
         # megnézi a megjelölt mező környzetében hány akna van
-        for i in range(-1,2):
-            for j in range(-1,2):
-                try:
-                    if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
-                            minesaround += 1
-                except IndexError:
-                    pass
+        #for i in range(-1,2):
+            #for j in range(-1,2):
+                #try:
+                    #if table_list[firstcoord+i][secondcoord+j] == 10 or table_list[firstcoord+i][secondcoord+j] == 12:
+                            #minesaround += 1
+                #except IndexError:
+                    #pass
 
         if minesaround == 0:
             table_list[firstcoord][secondcoord] = 9
