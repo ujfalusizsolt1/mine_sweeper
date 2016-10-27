@@ -24,6 +24,8 @@ if minecounter >= size*size:
 
 markcounter = minecounter
 
+emptycounter = size * size - minecounter
+
 # 0-val táblázat feltöltés
 for i in range(0,size):
     table_list.append([])
@@ -32,8 +34,10 @@ for i in range(0,size):
 
 # aknák elhelyezése
 for i in range(0,minecounter):
-    if table_list[random.randint(0, size-1)][random.randint(0, size-1)] == 0:
-        table_list[random.randint(0, size-1)][random.randint(0, size-1)] = 10
+    x = random.randint(0, size-1)
+    y = random.randint(0, size-1)
+    if table_list[x][y] == 0:
+        table_list[x][y] = 10
     else:
         i -= 1
 
@@ -115,7 +119,7 @@ while gameover == False:
         else:
             table_list[firstcoord][secondcoord] = minesaround
         minesaround = 0
-                        
+        emptycounter -=1                        
 
 
     # table list kiprintelése
@@ -149,7 +153,7 @@ while gameover == False:
             print(table_list[i][j], end= ' ')
         print("")
 
-    if minecounter == 0:
+    if minecounter == 0 or emptycounter == 0:
         gameover = True
         print(GREEN + "CONGRATULATIONS! YOU WON!" + END)
 
