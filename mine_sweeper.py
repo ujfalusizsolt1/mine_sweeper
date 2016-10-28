@@ -88,10 +88,12 @@ while gameover == False:
             elif mark == False:
                 gameover = True
                 print(RED + "Aknára léptél és felrobbantál a picsába." + END)
+                print("")
         elif table_list[firstcoord][secondcoord] == 12:
             if mark == False:
                 gameover = True
                 print(RED + "Aknára léptél és felrobbantál a picsába." + END)
+                print("")
             elif mark == True:
                 markcounter += 1
                 minecounter += 1
