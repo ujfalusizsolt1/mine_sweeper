@@ -1,4 +1,6 @@
 import random
+import getch
+from getch import *
 
 # színek printeléshez
 PURPLE = '\033[95m'
@@ -20,7 +22,8 @@ table_list = []
 
 size = int(input(YELLOW + "Please give us the minefield's size: " + END))
 
-minecounter = int(input(YELLOW + "How many mines would you like to have on the minefield? " + END))
+minecounter = int(
+    input(YELLOW + "How many mines would you like to have on the minefield? " + END))
 
 if minecounter >= size * size:
     gameover = true
@@ -55,13 +58,15 @@ for i in range(0, size):
 
 while gameover is False:
     # input
-    print(YELLOW + "Remaining mines: ", minecounter, "Remaining marks: ", markcounter, END)
+    print(YELLOW + "Remaining mines: ", minecounter,
+          "Remaining marks: ", markcounter, END)
 
     if markcounter > 0:
-        mark = input(YELLOW + "Do you want to mark the the next target (M-mark, C-check, anything else-exit)? " + END)
-        if mark == 'M':
+        print(YELLOW + "Do you want to mark the the next target (M-mark, C-check, anything else-exit)? " + END)
+        mark = getch()
+        if mark == 'm':
             mark = True
-        elif mark == 'C':
+        elif mark == 'c':
             mark = False
         else:
             gameover = True
@@ -73,8 +78,10 @@ while gameover is False:
         while wrong_input is True:
 
             try:
-                firstcoord = int(input(YELLOW + "Please give the number of the row you want to check: " + END)) - 1
-                secondcoord = int(input(YELLOW + "Please give the number of the column you want to check: " + END)) - 1
+                firstcoord = int(input(
+                    YELLOW + "Please give the number of the row you want to check: " + END)) - 1
+                secondcoord = int(input(
+                    YELLOW + "Please give the number of the column you want to check: " + END)) - 1
 
                 if firstcoord >= 0 and secondcoord >= 0 and firstcoord <= size - 1 and secondcoord <= size - 1:
                     wrong_input = False
