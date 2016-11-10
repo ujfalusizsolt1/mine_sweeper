@@ -313,22 +313,4 @@ def main():
                   "CONGRATULATIONS! YOU WON!" + colors['END'])
 
 
-def global_vars():
-    # global stuff
-    global table_list
-    global firstcoord
-    global secondcoord
-    global minecounter
-    global size
-    global gameover
-    global mark
-
-    table_list = []
-    firstcoord = 3
-    secondcoord = 3
-    minecounter = 3
-    size = 3
-    gameover = False
-    mark = "c"
-
 main()
