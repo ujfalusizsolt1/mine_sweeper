@@ -19,7 +19,7 @@ def mine_finder(returnvalues):
     secondcoord = returnvalues['secondcoord']
     size = returnvalues['size']
     emptycounter = returnvalues['emptycounter']
-    minesaround = returnvalues['minesaround']
+    minesaround = 0
 
     if gameover is False and mark is False:
         if firstcoord == 0:
@@ -65,10 +65,11 @@ def mine_finder(returnvalues):
                         if table_list[firstcoord + i][secondcoord + j] == 10 or table_list[firstcoord + i][secondcoord + j] == 12:
                             minesaround += 1
         table_list[firstcoord][secondcoord] = minesaround
-        minesaround = 0
         emptycounter -= 1
         returnvalues['emptycounter'] = emptycounter
         returnvalues['minesaround'] = minesaround
+
+    return minesaround
 
 
 def table_print(returnvalues):
@@ -233,6 +234,23 @@ def mine_layer(returnvalues):
             pass
 
 
+def mine_counter(returnvalues):
+    global table_list
+
+    size = returnvalues['size']
+
+    for sor in range(size):
+        for oszlop in range(size):
+            if table_list[sor][oszlop] != 10:
+                returnvalues['firstcoord'] = sor
+                returnvalues['secondcoord'] = oszlop
+                seged = mine_finder(returnvalues)
+                if seged != 0:
+                    table_list[sor][oszlop] = seged + 12
+
+    return
+
+
 def table_build(returnvalues):
     # 0-val táblázat feltöltés
     global table_list
@@ -307,11 +325,11 @@ def main():
     mark = ""
 
     returnvalues = set_conditions(returnvalues)
-    print (table_list)
     table_build(returnvalues)
-    print(table_list)
 
     mine_layer(returnvalues)
+
+    mine_counter(returnvalues)
 
     table_preview(returnvalues)
 
