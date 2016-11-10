@@ -280,21 +280,16 @@ def set_conditions(returnvalues):
         except ValueError:
             print('wrong input')
             continue
-        else:
-            break
-    while minecounter < 1:
+
+    while minecounter < 1 or minecounter > size * size:
         try:
             minecounter = int(input(colors[
                 'YELLOW'] + "How many mines would you like to have on the minefield? " + colors['END']))
-            if minecounter <= 0:
+            if minecounter <= 0 or minecounter > size * size:
                 raise ValueError
         except ValueError:
             print('wrong input')
             continue
-        else:
-            break
-    if minecounter >= size * size:
-        gameover = True
 
     markcounter = minecounter
 
