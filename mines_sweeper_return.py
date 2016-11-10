@@ -236,8 +236,10 @@ def mine_layer(returnvalues):
 
 def mine_counter(returnvalues):
     global table_list
+    global mark
 
     size = returnvalues['size']
+    mark = False
 
     for sor in range(size):
         for oszlop in range(size):
@@ -247,7 +249,6 @@ def mine_counter(returnvalues):
                 seged = mine_finder(returnvalues)
                 if seged != 0:
                     table_list[sor][oszlop] = seged + 12
-
     return
 
 
