@@ -3,7 +3,7 @@ import getch
 from getch import *
 import color
 from color import colors
-#import global_vars
+# import global_vars
 
 
 def mine_finder(returnvalues):
@@ -74,7 +74,6 @@ def mine_finder(returnvalues):
 
 def table_print(returnvalues):
     # table list kiprintelése
-
     global table_list
 
     size = returnvalues['size']
@@ -88,14 +87,14 @@ def table_print(returnvalues):
             elif i == 0 and j == 0:
                 print(" ", end=" ")
             else:
-                if table_list[i - 1][j - 1] == 0:
-                    print("O", end=" ")
-                elif table_list[i - 1][j - 1] == 10:
+                if table_list[i - 1][j - 1] == 0 or table_list[i - 1][j - 1] == 10:
                     print("O", end=" ")
                 elif table_list[i - 1][j - 1] == 9:
                     print(" ", end=" ")
                 elif table_list[i - 1][j - 1] == 11 or table_list[i - 1][j - 1] == 12:
                     print(colors['RED'] + "X", end=" " + colors['END'])
+                elif table_list[i - 1][j - 1] >= 13 and table_list[i - 1][j - 1] <= 20:
+                    print("O", end=" ")
                 else:
                     print(table_list[i - 1][j - 1], end=' ')
         print("")
@@ -306,6 +305,14 @@ def set_conditions(returnvalues):
     returnvalues['minecounter'] = minecounter
     returnvalues['emptycounter'] = emptycounter
     return returnvalues
+
+
+def reveal(returnvalues):
+    global table_list
+    firstcoord = returnvalues['firstcoord']
+    secondcoord = returnvalues['secondcoord']
+
+    return
 
 
 def main():
