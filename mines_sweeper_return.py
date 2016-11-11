@@ -118,6 +118,7 @@ def mark_gameover_check(returnvalues):
         if table_list[firstcoord][secondcoord] == 10:
             if mark:
                 markcounter -= 1
+                minecounter -= 1
                 table_list[firstcoord][secondcoord] = 12
             elif mark is False:
                 gameover = True
