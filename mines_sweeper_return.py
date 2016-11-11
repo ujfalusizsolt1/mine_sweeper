@@ -321,7 +321,7 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
-            elif baseoszlop + oszlop >= size - 1:
+            elif baseoszlop + oszlop >= size - 2:
                 edge = True
             else:
                 edge = True
@@ -334,7 +334,7 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
-            elif baseoszlop + oszlop <= 0:
+            elif baseoszlop + oszlop <= 1:
                 edge = True
                 basesor += 1
             else:
@@ -356,7 +356,7 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
-            elif baseoszlop + oszlop >= size - 1:
+            elif baseoszlop + oszlop >= size - 2:
                 edge = True
             else:
                 edge = True
@@ -369,7 +369,7 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
-            elif baseoszlop + oszlop <= 0:
+            elif baseoszlop + oszlop <= 1:
                 edge = True
                 basesor -= 1
             else:
