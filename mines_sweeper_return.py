@@ -323,7 +323,7 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] -= 12
             else:
                 edge = True
-            if baseoszlop + oszlop >= size - 2:
+            if baseoszlop + oszlop >= size - 1:
                 edge = True
             oszlop += 1
 
@@ -337,7 +337,7 @@ def reveal(returnvalues):
                 edge = True
             else:
                 edge = True
-            if baseoszlop + oszlop <= 1:
+            if baseoszlop + oszlop <= 0:
                 edge = True
                 basesor += 1
             oszlop -= 1
@@ -360,7 +360,7 @@ def reveal(returnvalues):
                 edge = True
             else:
                 edge = True
-            if baseoszlop + oszlop >= size - 2:
+            if baseoszlop + oszlop >= size - 1:
                 edge = True
             oszlop += 1
 
@@ -373,7 +373,7 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] -= 12
             else:
                 edge = True
-            if baseoszlop + oszlop <= 1:
+            if baseoszlop + oszlop <= 0:
                 edge = True
                 basesor -= 1
             oszlop -= 1
