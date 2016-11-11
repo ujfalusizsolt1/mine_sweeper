@@ -395,6 +395,45 @@ def reveal(returnvalues):
                 table_list[basesor + sor][baseoszlop] -= 12
             else:
                 edge = True
+            if basesor + sor >= 1:
+                edge = True
+            sor += 1
+
+        sor = 0
+        edge = False
+        while edge is False:
+            if table_list[basesor + sor][baseoszlop] == 0 or table_list[basesor + sor][baseoszlop] == 9:
+                table_list[basesor + sor][baseoszlop] = 9
+            elif table_list[basesor + sor][baseoszlop] >= 13 and table_list[basesor + sor][baseoszlop] <= 20:
+                table_list[basesor + sor][baseoszlop] -= 12
+                edge = True
+            else:
+                edge = True
+            if basesor + sor <= 0:
+                edge = True
+                baseoszlop += 1
+            sor -= 1
+        sor = 0
+        if baseoszlop + oszlop >= size - 1:
+            edge = True
+        oszlop += 1
+    oszlop = 0
+
+    # LEFT
+    while edge is False:
+        edge = False
+        basesor = firstcoord
+        baseoszlop = secondcoord + oszlop
+        while edge is False:
+            if table_list[basesor + sor][baseoszlop] == 0 or table_list[basesor + sor][baseoszlop] == 9:
+                table_list[basesor + sor][baseoszlop] = 9
+            elif table_list[basesor + sor][baseoszlop] >= 13 and table_list[basesor + sor][baseoszlop] <= 20:
+                table_list[basesor + sor][baseoszlop] -= 12
+                edge = True
+            else:
+                edge = True
+            if basesor + sor >= size - 1:
+                edge = True
             sor += 1
 
         sor = 0
@@ -406,36 +445,13 @@ def reveal(returnvalues):
                 table_list[basesor + sor][baseoszlop] -= 12
             else:
                 edge = True
+            if basesor + sor <= 0:
+                edge = True
+                baseoszlop -= 1
             sor -= 1
         sor = 0
-        oszlop += 1
-    oszlop = 0
-
-    # LEFT
-    while edge is False:
-        edge = False
-        basesor = firstcoord
-        baseoszlop = secondcoord + oszlop
-        while edge is False:
-            if table_list[sor][oszlop] == 0 or table_list[sor][oszlop] == 9:
-                table_list[sor][oszlop] = 9
-            elif table_list[sor][oszlop] >= 13 and table_list[sor][oszlop] <= 20:
-                table_list[sor][oszlop] -= 12
-            else:
-                edge = True
-            sor += 1
-
-        sor = 0
-        edge = False
-        while edge is False:
-            if table_list[sor][oszlop] == 0 or table_list[sor][oszlop] == 9:
-                table_list[sor][oszlop] = 9
-            elif table_list[sor][oszlop] >= 13 and table_list[sor][oszlop] <= 20:
-                table_list[sor][oszlop] -= 12
-            else:
-                edge = True
-            sor -= 1
-        sor = 0
+        if baseoszlop + oszlop <= 0:
+            edge = True
         oszlop -= 1
     oszlop = 0
 
