@@ -278,7 +278,7 @@ def set_conditions(returnvalues):
             if size <= 1:
                 raise ValueError
         except ValueError:
-            print('wrong input')
+            print('Wrong input.')
             continue
 
     while minecounter < 1 or minecounter > size * size:
@@ -288,7 +288,7 @@ def set_conditions(returnvalues):
             if minecounter <= 0 or minecounter > size * size:
                 raise ValueError
         except ValueError:
-            print('wrong input')
+            print('Wrong input.')
             continue
 
     markcounter = minecounter
