@@ -143,6 +143,10 @@ def mark_gameover_check(returnvalues):
             if mark is True:
                 markcounter -= 1
                 table_list[firstcoord][secondcoord] = 11
+        elif table_list[firstcoord][secondcoord] >= 13 and table_list[firstcoord][secondcoord] <= 20:
+            if mark is True:
+                markcounter -= 1
+                table_list[firstcoord][secondcoord] = 11
 
         returnvalues['markcounter'] = markcounter
         returnvalues['minecounter'] = minecounter
@@ -346,6 +350,7 @@ def reveal(returnvalues):
         if basesor + sor >= size - 1:
             edge = True
         sor += 1
+        basesor += 1
     sor = 0
     edge = False
 
@@ -384,6 +389,7 @@ def reveal(returnvalues):
         if basesor + sor <= 0:
             edge = True
         sor -= 1
+        basesor -= 1
     sor = 0
     edge = False
 
@@ -422,6 +428,7 @@ def reveal(returnvalues):
         if baseoszlop + oszlop >= size - 1:
             edge = True
         oszlop += 1
+        baseoszlop += 1
     oszlop = 0
     edge = False
 
@@ -460,6 +467,7 @@ def reveal(returnvalues):
         if baseoszlop + oszlop <= 0:
             edge = True
         oszlop -= 1
+        baseoszlop -= 1
     oszlop = 0
     edge = False
 
