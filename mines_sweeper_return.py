@@ -321,7 +321,7 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
-            elif baseoszlop + oszlop == size - 1:
+            elif baseoszlop + oszlop >= size - 1:
                 edge = True
             else:
                 edge = True
@@ -334,14 +334,14 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
-            elif baseoszlop + oszlop == 0:
+            elif baseoszlop + oszlop <= 0:
                 edge = True
                 basesor += 1
             else:
                 edge = True
             oszlop -= 1
         oszlop = 0
-        if basesor + sor == size - 1:
+        if basesor + sor >= size - 1:
             edge = True
         sor += 1
     sor = 0
@@ -356,6 +356,8 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
+            elif baseoszlop + oszlop >= size - 1:
+                edge = True
             else:
                 edge = True
             oszlop += 1
@@ -367,10 +369,15 @@ def reveal(returnvalues):
                 table_list[basesor][baseoszlop + oszlop] = 9
             elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
                 table_list[basesor][baseoszlop + oszlop] -= 12
+            elif baseoszlop + oszlop <= 0:
+                edge = True
+                basesor -= 1
             else:
                 edge = True
             oszlop -= 1
         oszlop = 0
+        if basesor + sor <= 0:
+            edge = True
         sor -= 1
     sor = 0
 
