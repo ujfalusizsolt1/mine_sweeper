@@ -306,6 +306,129 @@ def reveal(returnvalues):
     global table_list
     firstcoord = returnvalues['firstcoord']
     secondcoord = returnvalues['secondcoord']
+    size = returnvalues['size']
+    edge = False
+    sor = 0
+    oszlop = 0
+
+    # DOWN
+    while edge is False:
+        edge = False
+        basesor = firstcoord + sor
+        baseoszlop = secondcoord
+        while edge is False:
+            if table_list[basesor][baseoszlop + oszlop] == 0 or table_list[basesor][baseoszlop + oszlop] == 9:
+                table_list[basesor][baseoszlop + oszlop] = 9
+            elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
+                table_list[basesor][baseoszlop + oszlop] -= 12
+            elif baseoszlop + oszlop == size - 1:
+                edge = True
+            else:
+                edge = True
+            oszlop += 1
+
+        oszlop = 0
+        edge = False
+        while edge is False:
+            if table_list[basesor][baseoszlop + oszlop] == 0 or table_list[basesor][baseoszlop + oszlop] == 9:
+                table_list[basesor][baseoszlop + oszlop] = 9
+            elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
+                table_list[basesor][baseoszlop + oszlop] -= 12
+            elif baseoszlop + oszlop == 0:
+                edge = True
+                basesor += 1
+            else:
+                edge = True
+            oszlop -= 1
+        oszlop = 0
+        if basesor + sor == size - 1:
+            edge = True
+        sor += 1
+    sor = 0
+
+    # UP
+    while edge is False:
+        edge = False
+        basesor = firstcoord + sor
+        baseoszlop = secondcoord
+        while edge is False:
+            if table_list[basesor][baseoszlop + oszlop] == 0 or table_list[basesor][baseoszlop + oszlop] == 9:
+                table_list[basesor][baseoszlop + oszlop] = 9
+            elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
+                table_list[basesor][baseoszlop + oszlop] -= 12
+            else:
+                edge = True
+            oszlop += 1
+
+        oszlop = 0
+        edge = False
+        while edge is False:
+            if table_list[basesor][baseoszlop + oszlop] == 0 or table_list[basesor][baseoszlop + oszlop] == 9:
+                table_list[basesor][baseoszlop + oszlop] = 9
+            elif table_list[basesor][baseoszlop + oszlop] >= 13 and table_list[basesor][baseoszlop + oszlop] <= 20:
+                table_list[basesor][baseoszlop + oszlop] -= 12
+            else:
+                edge = True
+            oszlop -= 1
+        oszlop = 0
+        sor -= 1
+    sor = 0
+
+    # RIGHT
+    while edge is False:
+        edge = False
+        basesor = firstcoord
+        baseoszlop = secondcoord + oszlop
+        while edge is False:
+            if table_list[basesor + sor][baseoszlop] == 0 or table_list[basesor + sor][baseoszlop] == 9:
+                table_list[basesor + sor][baseoszlop] = 9
+            elif table_list[basesor + sor][baseoszlop] >= 13 and table_list[basesor + sor][baseoszlop] <= 20:
+                table_list[basesor + sor][baseoszlop] -= 12
+            else:
+                edge = True
+            sor += 1
+
+        sor = 0
+        edge = False
+        while edge is False:
+            if table_list[basesor + sor][baseoszlop] == 0 or table_list[basesor + sor][baseoszlop] == 9:
+                table_list[basesor + sor][baseoszlop] = 9
+            elif table_list[basesor + sor][baseoszlop] >= 13 and table_list[basesor + sor][baseoszlop] <= 20:
+                table_list[basesor + sor][baseoszlop] -= 12
+            else:
+                edge = True
+            sor -= 1
+        sor = 0
+        oszlop += 1
+    oszlop = 0
+
+    # LEFT
+    while edge is False:
+        edge = False
+        basesor = firstcoord
+        baseoszlop = secondcoord + oszlop
+        while edge is False:
+            if table_list[sor][oszlop] == 0 or table_list[sor][oszlop] == 9:
+                table_list[sor][oszlop] = 9
+            elif table_list[sor][oszlop] >= 13 and table_list[sor][oszlop] <= 20:
+                table_list[sor][oszlop] -= 12
+            else:
+                edge = True
+            sor += 1
+
+        sor = 0
+        edge = False
+        while edge is False:
+            if table_list[sor][oszlop] == 0 or table_list[sor][oszlop] == 9:
+                table_list[sor][oszlop] = 9
+            elif table_list[sor][oszlop] >= 13 and table_list[sor][oszlop] <= 20:
+                table_list[sor][oszlop] -= 12
+            else:
+                edge = True
+            sor -= 1
+        sor = 0
+        oszlop -= 1
+    oszlop = 0
 
     return
 
@@ -341,7 +464,10 @@ def main():
         input_handler(returnvalues)
         mark_gameover_check(returnvalues)
         mine_finder(returnvalues)
+        if table_list[firstcoord][secondcoord] == 9 or table_list[firstcoord][secondcoord] == 0:
+            reveal(returnvalues)
         table_print(returnvalues)
+        print(table_list)
         minecounter = returnvalues['minecounter']
         emptycounter = returnvalues['emptycounter']
         if gameover is True:
