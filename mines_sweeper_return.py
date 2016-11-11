@@ -420,6 +420,7 @@ def reveal(returnvalues):
             edge = True
         oszlop += 1
     oszlop = 0
+    edge = False
 
     # LEFT
     while edge is False:
@@ -497,7 +498,6 @@ def main():
         if table_list[firstcoord][secondcoord] == 9 or table_list[firstcoord][secondcoord] == 0:
             reveal(returnvalues)
         table_print(returnvalues)
-        print(table_list)
         minecounter = returnvalues['minecounter']
         emptycounter = returnvalues['emptycounter']
         if gameover is True:
