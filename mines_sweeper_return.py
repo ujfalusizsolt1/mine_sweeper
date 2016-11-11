@@ -471,6 +471,8 @@ def main():
         input_handler(returnvalues)
         mark_gameover_check(returnvalues)
         mine_finder(returnvalues)
+        firstcoord = returnvalues['firstcoord']
+        secondcoord = returnvalues['secondcoord']
         if table_list[firstcoord][secondcoord] == 9 or table_list[firstcoord][secondcoord] == 0:
             reveal(returnvalues)
         table_print(returnvalues)
