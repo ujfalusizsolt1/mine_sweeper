@@ -346,6 +346,7 @@ def reveal(returnvalues):
             edge = True
         sor += 1
     sor = 0
+    edge = False
 
     # UP
     while edge is False:
@@ -382,6 +383,7 @@ def reveal(returnvalues):
             edge = True
         sor -= 1
     sor = 0
+    edge = False
 
     # RIGHT
     while edge is False:
@@ -454,6 +456,7 @@ def reveal(returnvalues):
             edge = True
         oszlop -= 1
     oszlop = 0
+    edge = False
 
     return
 
